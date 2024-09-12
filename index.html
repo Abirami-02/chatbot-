@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Science Museum - Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .payment-form {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .payment-methods div {
+            width: 48%;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Payment Page</h2>
+    <form class="payment-form" action="/submit-payment" method="POST">
+        <!-- Contact Information -->
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <!-- Payment Method -->
+        <div class="form-group">
+            <label for="payment-method">Select Payment Method:</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="">-- Select Payment Method --</option>
+                <option value="credit-card">Credit/Debit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank-transfer">Bank Transfer</option>
+                <option value="mobile-wallet">Mobile Wallet (Google Pay, Apple Pay)</option>
+            </select>
+        </div>
+
+        <!-- Card Details -->
+        <div class="form-group">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+        </div>
+
+        <div class="form-group">
+            <label for="card-expiry">Expiry Date:</label>
+            <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY" required>
+        </div>
+
+        <div class="form-group">
+            <label for="card-cvv">CVV:</label>
+            <input type="number" id="card-cvv" name="card-cvv" placeholder="123" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-submit">Pay Now</button>
+    </form>
+</div>
+
+</body>
+</html>
